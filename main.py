@@ -99,6 +99,11 @@ def admin_only(func):
     return wrapper_function
 
 
+@app.context_processor\
+def inject_year():
+    return {'year': date.today().year}
+
+
 @app.route('/')
 def get_all_posts():
     posts = BlogPost.query.all()
